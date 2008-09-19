@@ -8,13 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@class MobileWikiViewController;
+@class MobileWikiAppDelegate;
 
 @interface MobileWikiAppDelegate : NSObject <UIApplicationDelegate> {
 	IBOutlet UIWindow *window;
+	IBOutlet UINavigationController *navController;
 }
 
 @property (nonatomic, retain) UIWindow *window;
+@property (nonatomic, retain) UINavigationController *navController;
+
+- (IBAction)showArticle:(id)sender;
 
 @end
 

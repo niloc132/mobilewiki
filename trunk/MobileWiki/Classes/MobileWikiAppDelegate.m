@@ -7,17 +7,22 @@
 //
 
 #import "MobileWikiAppDelegate.h"
+#import "ArticleViewController.h"
 
 @implementation MobileWikiAppDelegate
 
 @synthesize window;
+@synthesize navController;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {	
 	
 	// Override point for customization after app launch	
-    [window makeKeyAndVisible];
+	[window addSubview:[navController view]];
+	[window makeKeyAndVisible];
 }
-
+- (IBAction)showArticle:(id)sender {
+	[navController pushViewController:[[ArticleViewController alloc] initWithTitle:@"Blah"] animated:YES];
+}
 
 - (void)dealloc {
 	[window release];
