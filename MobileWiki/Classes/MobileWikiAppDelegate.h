@@ -30,6 +30,6 @@
 @property (nonatomic, retain) UINavigationController *navController;
 
 - (IBAction)showArticle:(id)sender;
-
+- (IBAction)showSearch:(id)sender;
+- (void)loadArticle:(NSString*)title;
 @end
-

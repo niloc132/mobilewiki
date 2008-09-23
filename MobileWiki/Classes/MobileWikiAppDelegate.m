@@ -19,6 +19,7 @@
 
 #import "MobileWikiAppDelegate.h"
 #import "ArticleViewController.h"
+#import "WikiProtocol.h"
 
 @implementation MobileWikiAppDelegate
 
@@ -26,13 +27,32 @@
 @synthesize navController;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {	
+	//hook up a protocol handler to listen to the wiki:// requests
+	[NSURLProtocol registerClass:[WikiProtocol class]];
 	
 	// Override point for customization after app launch	
 	[window addSubview:[navController view]];
 	[window makeKeyAndVisible];
 }
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+	//this will handle external requests for wiki: if we want it to
+	return YES;
+}
+
 - (IBAction)showArticle:(id)sender {
 	[navController pushViewController:[[ArticleViewController alloc] initWithTitle:@"Blah"] animated:YES];
+}
+
+- (IBAction)showSearch:(id)sender {
+	//move to the search screen, or show it, or something
+	[navController pushViewController:[[ArticleViewController alloc] initWithTitle:@"todo search page"] animated:YES];
+}
+
+- (void)loadArticle:(NSString*)title {
+	if ([[title substringToIndex:1] isEqualToString:@"/"]) {
+		title = [title substringFromIndex:1];
+	}
+	[navController pushViewController:[[ArticleViewController alloc] initWithTitle:title] animated:YES];
 }
 
 - (void)dealloc {
