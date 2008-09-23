@@ -1,5 +1,5 @@
 //
-//  ArticleViewController.h
+//  WikiProtocol.h
 //  MobileWiki
 //  
 //  Copyright (C) 2008
@@ -20,12 +20,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ArticleViewController : UIViewController<UIWebViewDelegate> {
-	IBOutlet UIWebView *webView;
-	
-	NSString *url;
+@interface WikiProtocol : NSURLProtocol {
 }
-
-@property (nonatomic, retain) UIWebView *webView;
 
 @end

@@ -18,18 +18,26 @@
 //  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 #import "ArticleViewController.h"
-
+#import "MobileWikiAppDelegate.h"
 
 @implementation ArticleViewController
 
+@synthesize webView;
+
 - (id) initWithTitle: (NSString*) t {
 	if (self = [super initWithNibName:@"ArticleView" bundle:nil]) {
-		//do something with the title
 		
 		self.title = t;
+		
+		//TODO get the dump name/id in the ctor, and pass it into the url
+		url = [NSString stringWithFormat:@"wiki://en/%@", [t stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
 	}
 	return self;
 }
+
+//- (id) initWithURL: (NSString*) u {
+//	url = u;
+//}
 
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 //	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -46,9 +54,29 @@
 
 /*
  If you need to do additional setup after loading the view, override viewDidLoad.
+*/
 - (void)viewDidLoad {
+	// is there a way to hook this up through the nib?
+	[self navigationItem].title = self.title;
+	
+	// hook up this as the delegate for the webview - this can probably be done in
+	// the xib instead
+	[webView setDelegate:self];
+	
+	// Request the article - this should be refactored to allow external or saved links
+	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+	[webView loadRequest:request];
 }
- */
+
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest: (NSURLRequest *) request navigationType:(UIWebViewNavigationType)navigationType
+{
+	if (UIWebViewNavigationTypeLinkClicked != navigationType)
+		return YES;
+	//TODO: send a request to the FirstResponder thingie to load the given page.
+	[(MobileWikiAppDelegate*)[[UIApplication sharedApplication] delegate] loadArticle:[[request URL] path]];
+	return NO;
+}
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
