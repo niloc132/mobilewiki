@@ -20,8 +20,17 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-@interface SampleSplashVC : UIViewController {
+@class WikiDump;
 
+@interface SampleSplashVC : UIViewController {
+	IBOutlet UILabel *msg;
+	
+	//only allowing one dump at a time for now
+	WikiDump *activeDump;
 }
+
+@property(retain, nonatomic) UILabel *msg;
+
+- (IBAction) showSampleArticle;
 
 @end

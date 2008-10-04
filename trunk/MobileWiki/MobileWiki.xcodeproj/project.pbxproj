@@ -13,9 +13,23 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		3B4FC8080E87F50F00B5ACAE /* WikiProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4FC8070E87F50F00B5ACAE /* WikiProtocol.m */; };
+		3B5D17630E8F05C200C035A5 /* WikiNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5D17620E8F05C200C035A5 /* WikiNavViewController.m */; };
+		3B9406D10E8B06F700521693 /* WikiDump.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9406D00E8B06F700521693 /* WikiDump.m */; };
+		3B9406DC0E8B5B7F00521693 /* WikiArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9406DB0E8B5B7F00521693 /* WikiArticle.m */; };
+		3B9407030E8EA53200521693 /* ReadStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9407000E8EA53200521693 /* ReadStream.m */; };
+		3B9407040E8EA53200521693 /* WPParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9407020E8EA53200521693 /* WPParser.m */; };
+		3B94070F0E8EA54E00521693 /* blocks.c in Sources */ = {isa = PBXBuildFile; fileRef = 3B9407050E8EA54E00521693 /* blocks.c */; };
+		3B9407100E8EA54E00521693 /* bzipreader.c in Sources */ = {isa = PBXBuildFile; fileRef = 3B9407060E8EA54E00521693 /* bzipreader.c */; };
+		3B9407110E8EA54E00521693 /* lsearcher.c in Sources */ = {isa = PBXBuildFile; fileRef = 3B9407090E8EA54E00521693 /* lsearcher.c */; };
+		3B9407120E8EA54E00521693 /* safe.c in Sources */ = {isa = PBXBuildFile; fileRef = 3B94070B0E8EA54E00521693 /* safe.c */; };
+		3B9407130E8EA54E00521693 /* wp.c in Sources */ = {isa = PBXBuildFile; fileRef = 3B94070D0E8EA54E00521693 /* wp.c */; };
+		3B9407210E8EA5D600521693 /* libbz2.1.0.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B9407200E8EA5D600521693 /* libbz2.1.0.4.dylib */; };
 		3BABAB010E83426E005FBE1A /* ArticleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BABAB000E83426E005FBE1A /* ArticleView.xib */; };
 		3BABAB440E835875005FBE1A /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BABAB430E835875005FBE1A /* ArticleViewController.m */; };
 		3BABAB520E836299005FBE1A /* SampleSplashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BABAB510E836299005FBE1A /* SampleSplashVC.m */; };
+		3BF9FB100E89A408003DC8F3 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BF9FB0F0E89A408003DC8F3 /* SearchView.xib */; };
+		3BF9FBD10E89BCDC003DC8F3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BF9FBD00E89BCDC003DC8F3 /* CoreGraphics.framework */; };
+		3BF9FBF90E89BD5A003DC8F3 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9FBF80E89BD5A003DC8F3 /* SearchViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,11 +43,36 @@
 		32CA4F630368D1EE00C91783 /* MobileWiki_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileWiki_Prefix.pch; sourceTree = "<group>"; };
 		3B4FC8060E87F50F00B5ACAE /* WikiProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiProtocol.h; sourceTree = "<group>"; };
 		3B4FC8070E87F50F00B5ACAE /* WikiProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikiProtocol.m; sourceTree = "<group>"; };
+		3B5D17610E8F05C200C035A5 /* WikiNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiNavViewController.h; sourceTree = "<group>"; };
+		3B5D17620E8F05C200C035A5 /* WikiNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikiNavViewController.m; sourceTree = "<group>"; };
+		3B9406CF0E8B06F700521693 /* WikiDump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiDump.h; sourceTree = "<group>"; };
+		3B9406D00E8B06F700521693 /* WikiDump.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikiDump.m; sourceTree = "<group>"; };
+		3B9406DA0E8B5B7F00521693 /* WikiArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiArticle.h; sourceTree = "<group>"; };
+		3B9406DB0E8B5B7F00521693 /* WikiArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikiArticle.m; sourceTree = "<group>"; };
+		3B9406FF0E8EA53200521693 /* ReadStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadStream.h; sourceTree = "<group>"; };
+		3B9407000E8EA53200521693 /* ReadStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadStream.m; sourceTree = "<group>"; };
+		3B9407010E8EA53200521693 /* WPParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPParser.h; sourceTree = "<group>"; };
+		3B9407020E8EA53200521693 /* WPParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPParser.m; sourceTree = "<group>"; };
+		3B9407050E8EA54E00521693 /* blocks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = blocks.c; sourceTree = "<group>"; };
+		3B9407060E8EA54E00521693 /* bzipreader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bzipreader.c; sourceTree = "<group>"; };
+		3B9407070E8EA54E00521693 /* bzipreader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bzipreader.h; sourceTree = "<group>"; };
+		3B9407080E8EA54E00521693 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
+		3B9407090E8EA54E00521693 /* lsearcher.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lsearcher.c; sourceTree = "<group>"; };
+		3B94070A0E8EA54E00521693 /* lsearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsearcher.h; sourceTree = "<group>"; };
+		3B94070B0E8EA54E00521693 /* safe.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = safe.c; sourceTree = "<group>"; };
+		3B94070C0E8EA54E00521693 /* safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = safe.h; sourceTree = "<group>"; };
+		3B94070D0E8EA54E00521693 /* wp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wp.c; sourceTree = "<group>"; };
+		3B94070E0E8EA54E00521693 /* wp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wp.h; sourceTree = "<group>"; };
+		3B9407200E8EA5D600521693 /* libbz2.1.0.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.1.0.4.dylib; path = usr/lib/libbz2.1.0.4.dylib; sourceTree = SDKROOT; };
 		3BABAB000E83426E005FBE1A /* ArticleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleView.xib; sourceTree = "<group>"; };
 		3BABAB420E835875005FBE1A /* ArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleViewController.h; sourceTree = "<group>"; };
 		3BABAB430E835875005FBE1A /* ArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleViewController.m; sourceTree = "<group>"; };
 		3BABAB500E836299005FBE1A /* SampleSplashVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleSplashVC.h; sourceTree = "<group>"; };
 		3BABAB510E836299005FBE1A /* SampleSplashVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleSplashVC.m; sourceTree = "<group>"; };
+		3BF9FB0F0E89A408003DC8F3 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
+		3BF9FBD00E89BCDC003DC8F3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3BF9FBF70E89BD5A003DC8F3 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		3BF9FBF80E89BD5A003DC8F3 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -44,6 +83,8 @@
 			files = (
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				3BF9FBD10E89BCDC003DC8F3 /* CoreGraphics.framework in Frameworks */,
+				3B9407210E8EA5D600521693 /* libbz2.1.0.4.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,12 +94,11 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3BABAB500E836299005FBE1A /* SampleSplashVC.h */,
-				3BABAB510E836299005FBE1A /* SampleSplashVC.m */,
+				3BDB7FBE0E97EB4600910E4E /* legacy */,
+				3B9406E30E8C07E500521693 /* Model Objects */,
+				3BF9FBFF0E89CDCA003DC8F3 /* View Controllers */,
 				1D3623240D0F684500981E51 /* MobileWikiAppDelegate.h */,
 				1D3623250D0F684500981E51 /* MobileWikiAppDelegate.m */,
-				3BABAB420E835875005FBE1A /* ArticleViewController.h */,
-				3BABAB430E835875005FBE1A /* ArticleViewController.m */,
 				3B4FC8060E87F50F00B5ACAE /* WikiProtocol.h */,
 				3B4FC8070E87F50F00B5ACAE /* WikiProtocol.m */,
 			);
@@ -88,6 +128,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				3BDB7FBF0E97EBAB00910E4E /* legacy */,
 				32CA4F630368D1EE00C91783 /* MobileWiki_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
@@ -100,6 +141,7 @@
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				3BABAB000E83426E005FBE1A /* ArticleView.xib */,
+				3BF9FB0F0E89A408003DC8F3 /* SearchView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -107,10 +149,66 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B9407200E8EA5D600521693 /* libbz2.1.0.4.dylib */,
+				3BF9FBD00E89BCDC003DC8F3 /* CoreGraphics.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3B9406E30E8C07E500521693 /* Model Objects */ = {
+			isa = PBXGroup;
+			children = (
+				3B9406CF0E8B06F700521693 /* WikiDump.h */,
+				3B9406D00E8B06F700521693 /* WikiDump.m */,
+				3B9406DA0E8B5B7F00521693 /* WikiArticle.h */,
+				3B9406DB0E8B5B7F00521693 /* WikiArticle.m */,
+			);
+			name = "Model Objects";
+			sourceTree = "<group>";
+		};
+		3BDB7FBE0E97EB4600910E4E /* legacy */ = {
+			isa = PBXGroup;
+			children = (
+				3B9406FF0E8EA53200521693 /* ReadStream.h */,
+				3B9407000E8EA53200521693 /* ReadStream.m */,
+				3B9407010E8EA53200521693 /* WPParser.h */,
+				3B9407020E8EA53200521693 /* WPParser.m */,
+			);
+			name = legacy;
+			sourceTree = "<group>";
+		};
+		3BDB7FBF0E97EBAB00910E4E /* legacy */ = {
+			isa = PBXGroup;
+			children = (
+				3B9407050E8EA54E00521693 /* blocks.c */,
+				3B9407060E8EA54E00521693 /* bzipreader.c */,
+				3B9407070E8EA54E00521693 /* bzipreader.h */,
+				3B9407080E8EA54E00521693 /* debug.h */,
+				3B9407090E8EA54E00521693 /* lsearcher.c */,
+				3B94070A0E8EA54E00521693 /* lsearcher.h */,
+				3B94070B0E8EA54E00521693 /* safe.c */,
+				3B94070C0E8EA54E00521693 /* safe.h */,
+				3B94070D0E8EA54E00521693 /* wp.c */,
+				3B94070E0E8EA54E00521693 /* wp.h */,
+			);
+			name = legacy;
+			sourceTree = "<group>";
+		};
+		3BF9FBFF0E89CDCA003DC8F3 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3BABAB500E836299005FBE1A /* SampleSplashVC.h */,
+				3BABAB510E836299005FBE1A /* SampleSplashVC.m */,
+				3BABAB420E835875005FBE1A /* ArticleViewController.h */,
+				3BABAB430E835875005FBE1A /* ArticleViewController.m */,
+				3BF9FBF70E89BD5A003DC8F3 /* SearchViewController.h */,
+				3BF9FBF80E89BD5A003DC8F3 /* SearchViewController.m */,
+				3B5D17610E8F05C200C035A5 /* WikiNavViewController.h */,
+				3B5D17620E8F05C200C035A5 /* WikiNavViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +255,7 @@
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				3BABAB010E83426E005FBE1A /* ArticleView.xib in Resources */,
+				3BF9FB100E89A408003DC8F3 /* SearchView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +271,17 @@
 				3BABAB440E835875005FBE1A /* ArticleViewController.m in Sources */,
 				3BABAB520E836299005FBE1A /* SampleSplashVC.m in Sources */,
 				3B4FC8080E87F50F00B5ACAE /* WikiProtocol.m in Sources */,
+				3BF9FBF90E89BD5A003DC8F3 /* SearchViewController.m in Sources */,
+				3B9406D10E8B06F700521693 /* WikiDump.m in Sources */,
+				3B9406DC0E8B5B7F00521693 /* WikiArticle.m in Sources */,
+				3B9407030E8EA53200521693 /* ReadStream.m in Sources */,
+				3B9407040E8EA53200521693 /* WPParser.m in Sources */,
+				3B94070F0E8EA54E00521693 /* blocks.c in Sources */,
+				3B9407100E8EA54E00521693 /* bzipreader.c in Sources */,
+				3B9407110E8EA54E00521693 /* lsearcher.c in Sources */,
+				3B9407120E8EA54E00521693 /* safe.c in Sources */,
+				3B9407130E8EA54E00521693 /* wp.c in Sources */,
+				3B5D17630E8F05C200C035A5 /* WikiNavViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

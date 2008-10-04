@@ -1,5 +1,5 @@
-//  
-//  SampleSplashVC.m
+//
+//  SearchViewController.h
 //  MobileWiki
 //  
 //  Copyright (C) 2008
@@ -17,26 +17,26 @@
 //  with this program; if not, write to the Free Software Foundation, Inc.,
 //  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-#import "SampleSplashVC.h"
-#import "WikiDump.h"
-#import "WikiNavViewController.h"
+#import <UIKit/UIKit.h>
 
-@implementation SampleSplashVC
+@class WikiDump;
 
-@synthesize msg;
-
-- (void)viewDidLoad {
-	activeDump = [[WikiDump alloc] initWithName:@"en" andSource:@"/wp"];
-	[WikiDump registerDump:activeDump];
-	[msg setText:[NSString stringWithFormat:@"Now using dump: \"%@\"",[activeDump name]]];
+@interface SearchViewController : UIViewController<UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource> {
+	IBOutlet UISearchBar *searchBar;
+	IBOutlet UITableView *tableView;
+	
+	//NSString *searchText;
+	
+	
+	//REMOVED FOR TEMP HACK - see SearchViewController.m 
+	//NSMutableArray *results;
+	//WikiDump *dump;
 }
+@property (nonatomic,retain) UISearchBar *searchBar;
+@property (nonatomic,retain) UITableView *tableView;
 
-- (IBAction) showSampleArticle {
-	[(WikiNavViewController*)[self parentViewController] pushArticle:[activeDump articleWithName:@"Wiki"]];
-}
+- (id)initWithDump:(WikiDump*)d;
 
-- (void)dealloc {
-	[super dealloc];
-}
+- (IBAction) dismiss;
 
 @end
