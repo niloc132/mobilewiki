@@ -19,13 +19,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class WikiArticle;
 
 @interface ArticleViewController : UIViewController<UIWebViewDelegate> {
 	IBOutlet UIWebView *webView;
+	//IBOutlet UIBarButtonItem *searchButton;
 	
-	NSString *url;
+	NSURL *_url;
 }
 
 @property (nonatomic, retain) UIWebView *webView;
+//@property (nonatomic, retain) UIBarButtonItem *searchButton;
+
+- (id) initWithUrl: (NSURL*) u;
+- (id) initWithArticle: (WikiArticle*) a;
 
 @end

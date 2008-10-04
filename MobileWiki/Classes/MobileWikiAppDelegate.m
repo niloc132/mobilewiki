@@ -19,6 +19,7 @@
 
 #import "MobileWikiAppDelegate.h"
 #import "ArticleViewController.h"
+#import "SearchViewController.h"
 #import "WikiProtocol.h"
 
 @implementation MobileWikiAppDelegate
@@ -35,24 +36,17 @@
 	[window makeKeyAndVisible];
 }
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-	//this will handle external requests for wiki: if we want it to
+	[self loadArticle:url];
 	return YES;
 }
-
-- (IBAction)showArticle:(id)sender {
-	[navController pushViewController:[[ArticleViewController alloc] initWithTitle:@"Blah"] animated:YES];
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Memory Warning" message:@"Memory warning recieved."
+											  delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
+	[alert show];
+	[alert release];
 }
-
-- (IBAction)showSearch:(id)sender {
-	//move to the search screen, or show it, or something
-	[navController pushViewController:[[ArticleViewController alloc] initWithTitle:@"todo search page"] animated:YES];
-}
-
-- (void)loadArticle:(NSString*)title {
-	if ([[title substringToIndex:1] isEqualToString:@"/"]) {
-		title = [title substringFromIndex:1];
-	}
-	[navController pushViewController:[[ArticleViewController alloc] initWithTitle:title] animated:YES];
+- (void)loadArticle:(NSURL*)url {
+	[navController pushViewController:[[ArticleViewController alloc] initWithUrl:url] animated:YES];
 }
 
 - (void)dealloc {

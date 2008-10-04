@@ -19,32 +19,27 @@
 
 #import "ArticleViewController.h"
 #import "MobileWikiAppDelegate.h"
+#import "WikiArticle.h"
 
 @implementation ArticleViewController
 
 @synthesize webView;
+//@synthesize searchButton;
 
-- (id) initWithTitle: (NSString*) t {
+- (id) initWithUrl: (NSURL*) u {
 	if (self = [super initWithNibName:@"ArticleView" bundle:nil]) {
-		
-		self.title = t;
-		
-		//TODO get the dump name/id in the ctor, and pass it into the url
-		url = [NSString stringWithFormat:@"wiki://en/%@", [t stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
+		_url = [u retain];
+		[self setTitle: [[u path] substringFromIndex: 1]];
 	}
+	
 	return self;
 }
 
-//- (id) initWithURL: (NSString*) u {
-//	url = u;
-//}
+- (id) initWithArticle: (WikiArticle*) a {
+	return [self initWithUrl:[a url]];
+}
 
-//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-//	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-//		// Initialization code
-//	}
-//	return self;
-//}
+
 
 /*
  Implement loadView if you want to create a view hierarchy programmatically
@@ -56,28 +51,29 @@
  If you need to do additional setup after loading the view, override viewDidLoad.
 */
 - (void)viewDidLoad {
-	// is there a way to hook this up through the nib?
-	[self navigationItem].title = self.title;
+	// is there a way to hook this up through the nib? or maybe the entire
+	// nav item should be made in code?
+	[[self navigationItem] setTitle: [self title]];
 	
-	// hook up this as the delegate for the webview - this can probably be done in
-	// the xib instead
-	[webView setDelegate:self];
+	[[self navigationItem] setRightBarButtonItem:
+		[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch 
+								 target:[self parentViewController]
+								 action:@selector(showSearchDialog)]
+	];
 	
 	// Request the article - this should be refactored to allow external or saved links
-	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+	NSURLRequest *request = [NSURLRequest requestWithURL:_url];
 	[webView loadRequest:request];
 }
-
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest: (NSURLRequest *) request navigationType:(UIWebViewNavigationType)navigationType
 {
 	if (UIWebViewNavigationTypeLinkClicked != navigationType)
 		return YES;
-	//TODO: send a request to the FirstResponder thingie to load the given page.
-	[(MobileWikiAppDelegate*)[[UIApplication sharedApplication] delegate] loadArticle:[[request URL] path]];
+	
+	[(MobileWikiAppDelegate*)[[UIApplication sharedApplication] delegate] loadArticle:[request URL]];
 	return NO;
 }
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	
@@ -94,6 +90,8 @@
 
 
 - (void)dealloc {
+	[webView release];
+	[_url release];
 	[super dealloc];
 }
 

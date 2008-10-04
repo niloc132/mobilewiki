@@ -1,5 +1,5 @@
-//  
-//  SampleSplashVC.m
+//
+//  WikiDump.h
 //  MobileWiki
 //  
 //  Copyright (C) 2008
@@ -17,26 +17,34 @@
 //  with this program; if not, write to the Free Software Foundation, Inc.,
 //  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-#import "SampleSplashVC.h"
-#import "WikiDump.h"
-#import "WikiNavViewController.h"
 
-@implementation SampleSplashVC
+#import <UIKit/UIKit.h>
+#import "wp.h"
 
-@synthesize msg;
+@class WikiArticle;
 
-- (void)viewDidLoad {
-	activeDump = [[WikiDump alloc] initWithName:@"en" andSource:@"/wp"];
-	[WikiDump registerDump:activeDump];
-	[msg setText:[NSString stringWithFormat:@"Now using dump: \"%@\"",[activeDump name]]];
+
+@interface WikiDump : NSObject {
+	NSString *_name;
+	wp_dump *_dump;
 }
 
-- (IBAction) showSampleArticle {
-	[(WikiNavViewController*)[self parentViewController] pushArticle:[activeDump articleWithName:@"Wiki"]];
-}
+@property(retain, readonly) NSString *name;
+@property(readonly) wp_dump *dump;
 
-- (void)dealloc {
-	[super dealloc];
-}
++ (WikiDump*)getDumpWithName:(NSString*)n;
++ (void)registerDump: (WikiDump*) d;
++ (void)unregisterDump: (WikiDump*) d;
+
+
+- (id)initWithName:(NSString*)n andSource:(NSString*)s;
+
+- (NSArray*)articlesWithNamesThatBeginWith:(NSString*)text;
+- (NSArray*)articlesThatContain:(NSString*)text;
+
+- (BOOL)hasArticleWithName:(NSString*)n;
+
+- (WikiArticle*)articleWithName:(NSString*)n;
+
 
 @end

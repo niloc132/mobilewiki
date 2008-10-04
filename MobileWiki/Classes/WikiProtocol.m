@@ -18,7 +18,8 @@
 //  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 #import "WikiProtocol.h"
-
+#import "WikiDump.h"
+#import "WikiArticle.h"
 
 @implementation WikiProtocol
 
@@ -43,21 +44,29 @@
 	id client = [self client];
 	NSURL *url = [[self request] URL];
 	
-	NSString *query = [url path];
+	NSString *dump = [url host];
+	NSString *name = [[url path] substringFromIndex: 1];// [path substringFromIndex: 1]
 	
 	//TODO: this should be gotten from a request to the dump
-	NSString *resp = [NSString stringWithFormat:@"Request was made for '%@'.\nThis text is a placeholder.<br /><a href='wiki://en/test'>test</a>", query];
+	NSString *resp = [NSString stringWithFormat:@"Request was made for '%@'.\nThis text is a placeholder.<br /><a href='wiki://en/test'>test</a>", name];
 	
+	WikiDump *d = [WikiDump getDumpWithName:dump];
+	
+	NSString *cap = [NSString stringWithFormat: @"%c%@", toupper([name characterAtIndex: 0]), [name substringFromIndex: 1]];
+	WikiArticle *a = [d articleWithName:cap];
+	
+	resp = [a bodyAsHTML];
 	
 	//convert the string to NSData, and build a response around it
-	NSData *d = [resp dataUsingEncoding:NSUTF8StringEncoding];//change the encoding  VVVVV to text/html to render html
-	NSURLResponse *response = [[NSURLResponse alloc] initWithURL:url MIMEType:@"text/html" expectedContentLength:[d length] textEncodingName:@"utf-8"];
+	NSData *data = [resp dataUsingEncoding:NSUTF8StringEncoding];//change the encoding  VVVVV to text/html to render html
+	NSURLResponse *response = [[NSURLResponse alloc] initWithURL:url MIMEType:@"text/html" expectedContentLength:[data length] textEncodingName:@"utf-8"];
 	
 	//send the response
 	[client URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
-	[client URLProtocol:self didLoadData:d];
+	[client URLProtocol:self didLoadData:data];
 	[client URLProtocolDidFinishLoading:self];
 	
+	[response release];
 }
 
 - (void)stopLoading {
