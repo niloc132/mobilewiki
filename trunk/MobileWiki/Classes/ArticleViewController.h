@@ -22,14 +22,8 @@
 @class WikiArticle;
 
 @interface ArticleViewController : UIViewController<UIWebViewDelegate> {
-	IBOutlet UIWebView *webView;
-	//IBOutlet UIBarButtonItem *searchButton;
-	
 	NSURL *_url;
 }
-
-@property (nonatomic, retain) UIWebView *webView;
-//@property (nonatomic, retain) UIBarButtonItem *searchButton;
 
 - (id) initWithUrl: (NSURL*) u;
 - (id) initWithArticle: (WikiArticle*) a;

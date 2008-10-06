@@ -21,15 +21,27 @@
 #import "ArticleViewController.h"
 #import "SearchViewController.h"
 #import "WikiProtocol.h"
+#import "WikiDump.h"
 
 @implementation MobileWikiAppDelegate
 
 @synthesize window;
 @synthesize navController;
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {	
-	//hook up a protocol handler to listen to the wiki:// requests
-	[NSURLProtocol registerClass:[WikiProtocol class]];
+- (id)init {
+	if (self = [super init]) {
+		//set up the dumps available
+		// TODO: this should read from a file/preference and somehow offer a choice to the user
+		[WikiDump registerDump:[[[WikiDump alloc] initWithName:@"en" andSource:@"/wp"] autorelease]];
+		
+		//hook up a protocol handler to listen to the wiki:// requests
+		[NSURLProtocol registerClass:[WikiProtocol class]];
+		
+	}
+	return self;
+}
+
+- (void)applicationDidFinishLaunching:(UIApplication *)application {
 	
 	// Override point for customization after app launch	
 	[window addSubview:[navController view]];
@@ -46,7 +58,7 @@
 	[alert release];
 }
 - (void)loadArticle:(NSURL*)url {
-	[navController pushViewController:[[ArticleViewController alloc] initWithUrl:url] animated:YES];
+	[navController pushViewController:[[[ArticleViewController alloc] initWithUrl:url] autorelease] animated:YES];
 }
 
 - (void)dealloc {

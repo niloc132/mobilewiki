@@ -30,6 +30,7 @@
 - (id) initWithName:(NSString*)n andDump:(WikiDump*)d {
 	if (self = [super init]) {
 		//check to see if the dump has an article with this name
+		//Okay, not yet - this is too expensive to call right now.
 		//if ([d hasArticleWithName:n] == NO)
 		//	return nil;
 		
@@ -48,40 +49,30 @@
 	return [NSURL URLWithString:u];
 }
 
-- (NSString*) text {
-	
+-(NSString*) text {
+	//TODO: ugly legacy code that can be removed and replaced with NSString calls. 
 	NSString *cap = [NSString stringWithFormat: @"%c%@", toupper([_name characterAtIndex: 0]), [_name substringFromIndex: 1]];
 	
 	wp_article *article = xalloc(sizeof(wp_article));
 	init_article(article);
 	load_article([_dump dump], [cap UTF8String], article);
 	
-	NSString *t = [NSString stringWithUTF8String:article->text];
+	NSString *res = [NSString stringWithUTF8String:article->text];
+	
 	free(article->text);
 	free(article);
 	
-	return t;
+	return res;
 }
-
 
 - (NSString*)bodyAsHTML {
 	//TODO: Refactor this into the WikiProtocol code.
 	//      This class should just return the wiki formated text, not the 
 	//      html.
-	NSString *cap = [NSString stringWithFormat: @"%c%@", toupper([_name characterAtIndex: 0]), [_name substringFromIndex: 1]];
 	
-	wp_article *article = xalloc(sizeof(wp_article));
-	init_article(article);
-	load_article([_dump dump], [cap UTF8String], article);
-	
-	
-	WPParser *wp = [[WPParser alloc] initWithMarkup: [NSString stringWithUTF8String: article->text]];
+	WPParser *wp = [[WPParser alloc] initWithMarkup: [self text]];
 	NSString *css = @"body { font-family: Helvetica; width: 310px; padding: 5px; margin: 0; word-wrap: break-word } .external { color: #888; }";
-	
 	NSString *page = [NSString stringWithFormat: @"<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><meta name=\"viewport\" content=\"width=320\"/><style>%@</style></head><body><h1>%@</h1>%@</body></html>", css, _name, [wp parsed]];
-	
-	free(article->text);
-	free(article);
 	
 	[wp release];
 	

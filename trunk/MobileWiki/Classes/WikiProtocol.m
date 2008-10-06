@@ -52,6 +52,7 @@
 	
 	WikiDump *d = [WikiDump getDumpWithName:dump];
 	
+	//TODO: ugly legacy code that can be removed and replaced with NSString calls. 
 	NSString *cap = [NSString stringWithFormat: @"%c%@", toupper([name characterAtIndex: 0]), [name substringFromIndex: 1]];
 	WikiArticle *a = [d articleWithName:cap];
 	

@@ -75,6 +75,7 @@ static NSMutableDictionary* allDumps;
 	wp_article *article = xalloc(sizeof(wp_article));
 	init_article(article);
 	
+	//TODO: ugly legacy code that can be removed and replaced with NSString calls. 
 	NSString *cap = [NSString stringWithFormat: @"%c%@", toupper([n characterAtIndex: 0]), [n substringFromIndex: 1]];
 	
 	//This method is very slow - replace it with something that doesnt grab the text

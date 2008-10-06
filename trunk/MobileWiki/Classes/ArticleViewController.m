@@ -23,11 +23,8 @@
 
 @implementation ArticleViewController
 
-@synthesize webView;
-//@synthesize searchButton;
-
 - (id) initWithUrl: (NSURL*) u {
-	if (self = [super initWithNibName:@"ArticleView" bundle:nil]) {
+	if (self = [super init]){
 		_url = [u retain];
 		[self setTitle: [[u path] substringFromIndex: 1]];
 	}
@@ -39,34 +36,25 @@
 	return [self initWithUrl:[a url]];
 }
 
-
-
-/*
- Implement loadView if you want to create a view hierarchy programmatically
 - (void)loadView {
-}
- */
-
-/*
- If you need to do additional setup after loading the view, override viewDidLoad.
-*/
-- (void)viewDidLoad {
-	// is there a way to hook this up through the nib? or maybe the entire
-	// nav item should be made in code?
-	[[self navigationItem] setTitle: [self title]];
+	[self setView:[[[UIWebView alloc] initWithFrame:CGRectZero] autorelease]];
+	[(UIWebView*)[self view] setDelegate:self];
+	
+	[[self navigationItem] setTitle:[self title]];
 	
 	[[self navigationItem] setRightBarButtonItem:
-		[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch 
-								 target:[self parentViewController]
-								 action:@selector(showSearchDialog)]
-	];
-	
-	// Request the article - this should be refactored to allow external or saved links
-	NSURLRequest *request = [NSURLRequest requestWithURL:_url];
-	[webView loadRequest:request];
+						[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch 
+												 target:[self parentViewController]
+												 action:@selector(showSearchDialog)] autorelease]
+	 ];
 }
 
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest: (NSURLRequest *) request navigationType:(UIWebViewNavigationType)navigationType
+- (void)viewDidLoad {
+	
+	[(UIWebView*)[self view] loadRequest:[NSURLRequest requestWithURL:_url]];
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest: (NSURLRequest*) request navigationType:(UIWebViewNavigationType)navigationType
 {
 	if (UIWebViewNavigationTypeLinkClicked != navigationType)
 		return YES;
@@ -90,7 +78,6 @@
 
 
 - (void)dealloc {
-	[webView release];
 	[_url release];
 	[super dealloc];
 }
