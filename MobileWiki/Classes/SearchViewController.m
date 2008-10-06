@@ -30,6 +30,7 @@ static WikiDump *dump;
 bool hackToRecieveResults(char *s) {
 	NSString *label = [NSString stringWithUTF8String:s];
 	NSRange r = [label rangeOfString:@" " options:NSBackwardsSearch];
+	//if (r.location < 
 	label = [label substringToIndex:((r.location) - 1)];
 	
 	WikiArticle *a = [dump articleWithName:label];

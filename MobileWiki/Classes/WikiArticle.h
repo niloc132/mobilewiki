@@ -35,4 +35,6 @@
 //TODO: Axe this method/property thingie
 - (NSString*) bodyAsHTML;
 
+- (NSString*) text;
+
 @end

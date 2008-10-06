@@ -25,9 +25,11 @@
 
 @synthesize msg;
 
+
+
 - (void)viewDidLoad {
-	activeDump = [[WikiDump alloc] initWithName:@"en" andSource:@"/wp"];
-	[WikiDump registerDump:activeDump];
+	activeDump = [WikiDump getDumpWithName:@"en"];
+	
 	[msg setText:[NSString stringWithFormat:@"Now using dump: \"%@\"",[activeDump name]]];
 }
 
