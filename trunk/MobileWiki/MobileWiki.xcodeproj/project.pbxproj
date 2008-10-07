@@ -24,7 +24,6 @@
 		3B9407120E8EA54E00521693 /* safe.c in Sources */ = {isa = PBXBuildFile; fileRef = 3B94070B0E8EA54E00521693 /* safe.c */; };
 		3B9407130E8EA54E00521693 /* wp.c in Sources */ = {isa = PBXBuildFile; fileRef = 3B94070D0E8EA54E00521693 /* wp.c */; };
 		3B9407210E8EA5D600521693 /* libbz2.1.0.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B9407200E8EA5D600521693 /* libbz2.1.0.4.dylib */; };
-		3BABAB010E83426E005FBE1A /* ArticleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BABAB000E83426E005FBE1A /* ArticleView.xib */; };
 		3BABAB440E835875005FBE1A /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BABAB430E835875005FBE1A /* ArticleViewController.m */; };
 		3BABAB520E836299005FBE1A /* SampleSplashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BABAB510E836299005FBE1A /* SampleSplashVC.m */; };
 		3BF9FB100E89A408003DC8F3 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BF9FB0F0E89A408003DC8F3 /* SearchView.xib */; };
@@ -64,7 +63,6 @@
 		3B94070D0E8EA54E00521693 /* wp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wp.c; sourceTree = "<group>"; };
 		3B94070E0E8EA54E00521693 /* wp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wp.h; sourceTree = "<group>"; };
 		3B9407200E8EA5D600521693 /* libbz2.1.0.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.1.0.4.dylib; path = usr/lib/libbz2.1.0.4.dylib; sourceTree = SDKROOT; };
-		3BABAB000E83426E005FBE1A /* ArticleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleView.xib; sourceTree = "<group>"; };
 		3BABAB420E835875005FBE1A /* ArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleViewController.h; sourceTree = "<group>"; };
 		3BABAB430E835875005FBE1A /* ArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleViewController.m; sourceTree = "<group>"; };
 		3BABAB500E836299005FBE1A /* SampleSplashVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleSplashVC.h; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 			children = (
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
-				3BABAB000E83426E005FBE1A /* ArticleView.xib */,
 				3BF9FB0F0E89A408003DC8F3 /* SearchView.xib */,
 			);
 			name = Resources;
@@ -254,7 +251,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
-				3BABAB010E83426E005FBE1A /* ArticleView.xib in Resources */,
 				3BF9FB100E89A408003DC8F3 /* SearchView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

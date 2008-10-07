@@ -59,7 +59,7 @@
 	resp = [a bodyAsHTML];
 	
 	//convert the string to NSData, and build a response around it
-	NSData *data = [resp dataUsingEncoding:NSUTF8StringEncoding];//change the encoding  VVVVV to text/html to render html
+	NSData *data = [resp dataUsingEncoding:NSUTF8StringEncoding];
 	NSURLResponse *response = [[NSURLResponse alloc] initWithURL:url MIMEType:@"text/html" expectedContentLength:[data length] textEncodingName:@"utf-8"];
 	
 	//send the response
@@ -72,5 +72,9 @@
 
 - (void)stopLoading {
 	
+}
+
+- (void)dealloc {
+	[super dealloc];
 }
 @end

@@ -33,7 +33,7 @@ void load_dump_from_conf(wp_dump *d, char *conf) {
 }
 
 void init_article(wp_article *a) {
-  a->text = malloc(BZ_MAX_BLOCK);
+  //a->text = malloc(BZ_MAX_BLOCK);
 }
 
 bool handle_exact_match(char *s) {
@@ -136,9 +136,14 @@ int block_load_article(wp_dump *d, char *name, int block, wp_article *a) {
 	debug("a->text: 0x%x", a->text);
 	
 	*(start + article_len) = '\0';
-	strncpy(a->text, start, article_len + 1);
+	//strncpy(a->text, start, article_len + 1);
+	strncpy(text, start, article_len + 1);
+	realloc(text, article_len);
+	
+	
+	a->text = text;
 	a->block = block;
-	free(text);
+	//free(text);
 	return article_len;
 }
 
