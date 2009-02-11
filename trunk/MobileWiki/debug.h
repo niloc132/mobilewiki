@@ -5,6 +5,8 @@
 #include <errno.h>
 #include <string.h>
 
+#define DEBUG
+
 #ifdef STRIP_DEBUG
 #define debug(...)
 #else
