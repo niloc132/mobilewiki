@@ -1,0 +1,345 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3B08FBE60F3E536900050F2F /* article.c in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8E510EA5B78900112C2A /* article.c */; };
+		3B08FBE80F3E536900050F2F /* bzipblock.c in Sources */ = {isa = PBXBuildFile; fileRef = 3B28E7800EAC23A100E227B5 /* bzipblock.c */; };
+		3B08FBE90F3E537000050F2F /* reader.c in Sources */ = {isa = PBXBuildFile; fileRef = 3B08FB830F3E4C9600050F2F /* reader.c */; };
+		3B1355300EB3C2A5004D5D96 /* bitwriter.c in Sources */ = {isa = PBXBuildFile; fileRef = 3B13552F0EB3C2A5004D5D96 /* bitwriter.c */; };
+		3B28E7810EAC23A100E227B5 /* bzipblock.c in Sources */ = {isa = PBXBuildFile; fileRef = 3B28E7800EAC23A100E227B5 /* bzipblock.c */; };
+		3B42BF160F3FDC7A001F9484 /* bitwriter.c in Sources */ = {isa = PBXBuildFile; fileRef = 3B13552F0EB3C2A5004D5D96 /* bitwriter.c */; };
+		3BEF8E520EA5B78900112C2A /* article.c in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8E510EA5B78900112C2A /* article.c */; };
+		3BEF8EC00EA6F67C00112C2A /* string.c in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8EBF0EA6F67C00112C2A /* string.c */; };
+		8DD76FAC0486AB0100D96B5E /* indexer.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* indexer.c */; settings = {ATTRIBUTES = (); }; };
+		8DD76FB00486AB0100D96B5E /* Indexer-xcode.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6A0FF2C0290799A04C91782 /* Indexer-xcode.1 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8DD76FAF0486AB0100D96B5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				8DD76FB00486AB0100D96B5E /* Indexer-xcode.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		08FB7796FE84155DC02AAC07 /* indexer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = indexer.c; sourceTree = "<group>"; };
+		3B08FB5D0F3E45C900050F2F /* wikiReader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wikiReader; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B08FB830F3E4C9600050F2F /* reader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = reader.c; sourceTree = "<group>"; };
+		3B13552E0EB3C2A5004D5D96 /* bitwriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bitwriter.h; sourceTree = "<group>"; };
+		3B13552F0EB3C2A5004D5D96 /* bitwriter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bitwriter.c; sourceTree = "<group>"; };
+		3B28E75E0EAC0D4500E227B5 /* bzipblock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bzipblock.h; sourceTree = "<group>"; };
+		3B28E7800EAC23A100E227B5 /* bzipblock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bzipblock.c; sourceTree = "<group>"; };
+		3BEF8E500EA5B78900112C2A /* article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = article.h; sourceTree = "<group>"; };
+		3BEF8E510EA5B78900112C2A /* article.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = article.c; sourceTree = "<group>"; };
+		3BEF8EBE0EA6F67C00112C2A /* string.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = string.h; sourceTree = "<group>"; };
+		3BEF8EBF0EA6F67C00112C2A /* string.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = string.c; sourceTree = "<group>"; };
+		8DD76FB20486AB0100D96B5E /* Indexer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Indexer; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6A0FF2C0290799A04C91782 /* Indexer-xcode.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = "Indexer-xcode.1"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3B08FB5B0F3E45C900050F2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DD76FAD0486AB0100D96B5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* Indexer-xcode */ = {
+			isa = PBXGroup;
+			children = (
+				08FB7795FE84155DC02AAC07 /* Source */,
+				C6A0FF2B0290797F04C91782 /* Documentation */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+			);
+			name = "Indexer-xcode";
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				3B08FB650F3E478500050F2F /* shared */,
+				3B08FB640F3E462000050F2F /* reader */,
+				3B08FB630F3E461800050F2F /* indexer */,
+				3BEF8EBE0EA6F67C00112C2A /* string.h */,
+				3BEF8EBF0EA6F67C00112C2A /* string.c */,
+				3B13552E0EB3C2A5004D5D96 /* bitwriter.h */,
+				3B13552F0EB3C2A5004D5D96 /* bitwriter.c */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DD76FB20486AB0100D96B5E /* Indexer */,
+				3B08FB5D0F3E45C900050F2F /* wikiReader */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3B08FB630F3E461800050F2F /* indexer */ = {
+			isa = PBXGroup;
+			children = (
+				08FB7796FE84155DC02AAC07 /* indexer.c */,
+			);
+			name = indexer;
+			sourceTree = "<group>";
+		};
+		3B08FB640F3E462000050F2F /* reader */ = {
+			isa = PBXGroup;
+			children = (
+				3B08FB830F3E4C9600050F2F /* reader.c */,
+			);
+			name = reader;
+			sourceTree = "<group>";
+		};
+		3B08FB650F3E478500050F2F /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				3BEF8E500EA5B78900112C2A /* article.h */,
+				3BEF8E510EA5B78900112C2A /* article.c */,
+				3B28E75E0EAC0D4500E227B5 /* bzipblock.h */,
+				3B28E7800EAC23A100E227B5 /* bzipblock.c */,
+			);
+			name = shared;
+			sourceTree = "<group>";
+		};
+		C6A0FF2B0290797F04C91782 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				C6A0FF2C0290799A04C91782 /* Indexer-xcode.1 */,
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3B08FB5C0F3E45C900050F2F /* wikiReader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B08FB610F3E45E700050F2F /* Build configuration list for PBXNativeTarget "wikiReader" */;
+			buildPhases = (
+				3B08FB5A0F3E45C900050F2F /* Sources */,
+				3B08FB5B0F3E45C900050F2F /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = wikiReader;
+			productName = wikiReader;
+			productReference = 3B08FB5D0F3E45C900050F2F /* wikiReader */;
+			productType = "com.apple.product-type.tool";
+		};
+		8DD76FA90486AB0100D96B5E /* Indexer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB928508733DD80010E9CD /* Build configuration list for PBXNativeTarget "Indexer" */;
+			buildPhases = (
+				8DD76FAB0486AB0100D96B5E /* Sources */,
+				8DD76FAD0486AB0100D96B5E /* Frameworks */,
+				8DD76FAF0486AB0100D96B5E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Indexer;
+			productInstallPath = "$(HOME)/bin";
+			productName = "Indexer-xcode";
+			productReference = 8DD76FB20486AB0100D96B5E /* Indexer */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "Indexer" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 08FB7794FE84155DC02AAC07 /* Indexer-xcode */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DD76FA90486AB0100D96B5E /* Indexer */,
+				3B08FB5C0F3E45C900050F2F /* wikiReader */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3B08FB5A0F3E45C900050F2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B08FBE90F3E537000050F2F /* reader.c in Sources */,
+				3B08FBE60F3E536900050F2F /* article.c in Sources */,
+				3B08FBE80F3E536900050F2F /* bzipblock.c in Sources */,
+				3B42BF160F3FDC7A001F9484 /* bitwriter.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DD76FAB0486AB0100D96B5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD76FAC0486AB0100D96B5E /* indexer.c in Sources */,
+				3BEF8E520EA5B78900112C2A /* article.c in Sources */,
+				3BEF8EC00EA6F67C00112C2A /* string.c in Sources */,
+				3B28E7810EAC23A100E227B5 /* bzipblock.c in Sources */,
+				3B1355300EB3C2A5004D5D96 /* bitwriter.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB928608733DD80010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = Indexer;
+			};
+			name = Debug;
+		};
+		1DEB928708733DD80010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = Indexer;
+			};
+			name = Release;
+		};
+		1DEB928A08733DD80010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_MODEL_PPC64 = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lbz2";
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		1DEB928B08733DD80010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_MODEL_PPC64 = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-lbz2";
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+		3B08FB5F0F3E45C900050F2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
+				INSTALL_PATH = /usr/local/bin;
+				PREBINDING = NO;
+				PRODUCT_NAME = wikiReader;
+			};
+			name = Debug;
+		};
+		3B08FB600F3E45C900050F2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Carbon,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = wikiReader;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB928508733DD80010E9CD /* Build configuration list for PBXNativeTarget "Indexer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB928608733DD80010E9CD /* Debug */,
+				1DEB928708733DD80010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "Indexer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB928A08733DD80010E9CD /* Debug */,
+				1DEB928B08733DD80010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B08FB610F3E45E700050F2F /* Build configuration list for PBXNativeTarget "wikiReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B08FB5F0F3E45C900050F2F /* Debug */,
+				3B08FB600F3E45C900050F2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}
