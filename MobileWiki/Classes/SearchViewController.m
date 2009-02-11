@@ -36,7 +36,7 @@ bool hackToRecieveResults(char *s) {
 	WikiArticle *a = [dump articleWithName:label];
 	[results addObject:a];
 	
-	return [results count] < 100;
+	return [results count] < 500;
 }
 //END TEMP HACK
 
@@ -55,8 +55,31 @@ bool hackToRecieveResults(char *s) {
 	return self;
 }
 
+-(void) startTimer {
+	updater = [NSTimer scheduledTimerWithTimeInterval: 1 
+											   target: tableView
+											 selector: @selector(reloadData)
+											 userInfo: nil
+											  repeats: YES]; 
+}
+
+-(void) stopTimer {
+	[updater invalidate];
+	//[updater release];
+	updater = nil;
+}
+
+- (void) stopSearch {
+	kill_search();
+	while(sthread && [sthread isExecuting]); 
+}
+
+
 - (IBAction) dismiss {
 	[self dismissModalViewControllerAnimated:YES];
+
+	[self stopSearch];
+	[self stopTimer];
 }
 
 
@@ -64,55 +87,54 @@ bool hackToRecieveResults(char *s) {
  * Search Bar Delegate stuff
  */
 - (void)searchBar:(UISearchBar *)search textDidChange:(NSString *)text {
-	//text was changed
 	
-	char* curNeedle = xalloc(MAXSTR * sizeof(char));
-	strncpy(curNeedle, [[[search text] capitalizedString] UTF8String], MAXSTR);
+	[self stopSearch];
 	
-	[results removeAllObjects];
-	
-	lsearch(&[dump dump]->index, curNeedle, &hackToRecieveResults, NULL, true, true);
-	
-	free(curNeedle);
-	
-	
-	
-	[tableView reloadData];
-	//[tableView beginUpdates];//what do these do?
-//	[tableView endUpdates];
-}
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)search {
-	//started typing?
-}
-- (void)searchBarTextDidEndEditing:(UISearchBar *)search {
-	//ended typing?
-}
-- (void)searchBarSearchButtonClicked:(UISearchBar *)search {
-	if ([[search text] length] < 1)
+	if ([[search text] length] < 1) {
+		// clear the results...
+		[results removeAllObjects];
+		[tableView reloadData];
 		return;
+	}
 	
+	//text was changed
+	sthread = [[NSThread alloc] initWithTarget: self selector: @selector(search:) object: [[search text] capitalizedString]];
+	[sthread start];
 	
-	//TODO: Grab articles that match title AND body
+	if(!updater) [self startTimer];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)search {
+	//if ([[search text] length] < 1)
+//		return;
+//	[self stopSearch];
+//	sthread = [[NSThread alloc] initWithTarget: self selector: @selector(search:) object: [[search text] capitalizedString]];
+//	[sthread start];
 	
-	//ugh...
-	char* curNeedle = xalloc(MAXSTR * sizeof(char));
-	strncpy(curNeedle, [[[search text] capitalizedString] UTF8String], MAXSTR);
+	//if(!updater) [self startTimer];
+
 	
-	[results removeAllObjects];
-	
-	lsearch(&[dump dump]->index, curNeedle, &hackToRecieveResults, NULL, true, true);
-	
-	free(curNeedle);
-	
-	[tableView reloadData];
-	//[tableView beginUpdates];
-	//[tableView endUpdates];
 	[searchBar resignFirstResponder];
-	
-	
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)search {
 	[searchBar resignFirstResponder];
+}
+
+
+
+- (void)search:(NSString*)text {
+	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+	
+	char* curNeedle = xalloc(MAXSTR * sizeof(char));
+	strncpy(curNeedle, [text UTF8String], MAXSTR);
+	
+	[results removeAllObjects];
+	
+	lsearch(&[dump dump]->index, curNeedle, &hackToRecieveResults, NULL, true, true);
+	
+	free(curNeedle);
+	
+	[pool release];
 }
 
 /* 
@@ -128,11 +150,8 @@ bool hackToRecieveResults(char *s) {
 		c = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"ArticleCell"];
 	}
 	
-	//find the label index
-	NSInteger i = [indexPath length];
-	NSInteger j = [indexPath indexAtPosition:(i - 1)];
-	
-	[c setText:[[results objectAtIndex:j] name]];
+	// find the label index	
+	[c setText:[[results objectAtIndex:[indexPath row]] name]];
 	
 	return c;
 }
@@ -142,11 +161,9 @@ bool hackToRecieveResults(char *s) {
 
 - (void)tableView:(UITableView *)t didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	//find the dummy label
-	NSInteger i = [indexPath length];
-	NSInteger j = [indexPath indexAtPosition:(i - 1)];
 	
 	[self dismiss];
-	[(WikiNavViewController*)[self parentViewController] pushArticle:[results objectAtIndex:j]];
+	[(WikiNavViewController*)[self parentViewController] pushArticle:[results objectAtIndex:[indexPath row]]];
 }
 
 
@@ -163,25 +180,20 @@ bool hackToRecieveResults(char *s) {
 	[searchBar becomeFirstResponder];
 }
 
-
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	// Return YES for supported orientations
 	return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
 
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning]; // Releases the view if it doesn't have a superview
 	// Release anything that's not essential, such as cached data
 }
 
-
 - (void)dealloc {
 	[searchBar release];
 	[dump release];
 	[super dealloc];
 }
-
 
 @end

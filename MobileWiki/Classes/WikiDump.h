@@ -27,6 +27,8 @@
 @interface WikiDump : NSObject {
 	NSString *_name;
 	wp_dump *_dump;
+	
+	NSMutableDictionary *articles;
 }
 
 @property(retain, readonly) NSString *name;

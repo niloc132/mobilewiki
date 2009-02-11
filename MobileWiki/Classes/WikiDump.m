@@ -48,6 +48,8 @@ static NSMutableDictionary* allDumps;
 	if (self = [super init]) {
 		_name = [n retain];
 		
+		articles = [[NSMutableDictionary alloc] init];
+		
 		//using stuff from 1.0 vers to init 
 		//TODO: use source path
 		_dump = xalloc(sizeof(wp_dump));
@@ -89,21 +91,24 @@ static NSMutableDictionary* allDumps;
 }
 
 -(WikiArticle*) articleWithName:(NSString*)n {
-	WikiArticle *a = [[WikiArticle alloc] initWithName:n andDump:self];
-	
-	//add it to a cache? add to a list of articles that do not exist?
-	if (a) {
-		//TODO: add to cache
+	WikiArticle *a = [articles objectForKey:n];
+	if (!a) {
+		a = [[WikiArticle alloc] initWithName:n andDump:self];
 		
-		[a autorelease];
+		//add it to a cache? add to a list of articles that do not exist?
+		if (a) {
+			//TODO: add to cache
+			[articles setObject:a forKey:n];
+			[a autorelease];
+		}
 	}
-	
 	return a;
 }
 
 - (void)dealloc {
 	free(_dump);
 	[_name release];
+	[articles release];
 	[super dealloc];
 }
 
