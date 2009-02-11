@@ -37,7 +37,7 @@
 #define BZ_MAX_HANDLED_BLOCKS 500000
 
 /* Needs to be >3.7kb apparently */
-#define BZ_MAX_BLOCK (5 * 900 * 1024)
+#define BZ_MAX_BLOCK (5 * 100 * 1024)
 
 #define BZ_MAX_FILENAME 2000
 

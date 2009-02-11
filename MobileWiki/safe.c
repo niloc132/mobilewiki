@@ -3,7 +3,8 @@
 void *xalloc(size_t size) {
   void *ptr = malloc(size);
   
-  if(!ptr) fatal("Couldn't allocate %zu bytes", size);
+  if(!ptr) 
+	  fatal("Couldn't allocate %zu bytes", size);
   
   memset(ptr, 0, size);
   return ptr;
@@ -14,7 +15,8 @@ FILE *xfopen(const char *path, const char *mode) {
   
   FILE *fp = fopen(path, mode);
   
-  if(!fp) fatal("Couldn't open %s", path);
+  if(!fp) 
+	  fatal("Couldn't open %s", path);
   
   return fp;
 }
@@ -60,8 +62,10 @@ void *xmmapf(char *path, size_t *size) {
   int fd;
   struct stat s;
 
-  if((fd = open(path, O_RDONLY)) < 0) fatal("Error open()ing %s", path);
-  if(fstat(fd, &s) < 0) fatal("fstat");
+  if((fd = open(path, O_RDONLY)) < 0) 
+	  fatal("Error open()ing %s", path);
+  if(fstat(fd, &s) < 0) 
+	  fatal("fstat");
 
   if(size) *size = s.st_size;
 
