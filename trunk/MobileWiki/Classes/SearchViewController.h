@@ -26,7 +26,8 @@
 	IBOutlet UITableView *tableView;
 	
 	//NSString *searchText;
-	
+	NSThread *sthread;
+	NSTimer *updater;
 	
 	//REMOVED FOR TEMP HACK - see SearchViewController.m 
 	//NSMutableArray *results;

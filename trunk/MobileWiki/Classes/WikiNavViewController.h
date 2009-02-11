@@ -21,9 +21,11 @@
 
 @class WikiArticle;
 @class SearchViewController;
+@class ArticleViewController;
 
 @interface WikiNavViewController : UINavigationController {
 	SearchViewController *search;
+	ArticleViewController *articleVC;
 }
 
 - (void) pushArticle:(WikiArticle*) article;
